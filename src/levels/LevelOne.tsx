@@ -1,6 +1,8 @@
 import {
   FormContainer,
+  LevelBody,
   LevelButton,
+  LevelInput,
   LevelText,
   LevelTitle,
 } from "../components/common";
@@ -21,9 +23,15 @@ const LevelOne = () => {
 
   return (
     <FormContainer>
-      <LevelTitle text={"输入密码以过关"} />
-      <LevelText text={`密码是：${password}`} />
-      <input value={value} onChange={(event) => setValue(event.target.value)} />
+      <LevelTitle text={"输入密码以过关"} stage={1} />
+      <LevelBody>
+        <LevelText text={`密码是：${password}`} />
+        <LevelInput
+          value={value}
+          placeholder={"请在此输入密码"}
+          onChange={(event) => setValue(event.target.value)}
+        />
+      </LevelBody>
       <LevelButton text={"下一关"} onClick={onNextLevel} />
     </FormContainer>
   );
