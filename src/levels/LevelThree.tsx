@@ -7,7 +7,8 @@ import {
 import { useRef } from "react";
 import { useNavigate } from "react-router";
 import chroma from "chroma-js";
-import { setCookie } from "../utils/cookie";
+import { getCookie, setCookie } from "../utils/cookie";
+import setLevel from "../utils/setLevel";
 
 const LevelTwo = () => {
   const navigate = useNavigate();
@@ -21,8 +22,7 @@ const LevelTwo = () => {
     const [h, s, v] = color.hsv();
     // blue predication
     if (185 <= h && h <= 260 && s >= 0.2 && v >= 0.3) {
-      navigate("/level/4");
-      setCookie("level","4")
+      setLevel(navigate, 4);
     }
   };
 

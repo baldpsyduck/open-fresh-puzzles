@@ -9,6 +9,7 @@ import { useRef } from "react";
 import { useNavigate } from "react-router";
 import styled from "@emotion/styled";
 import { getCookie, setCookie } from "../utils/cookie";
+import setLevel from "../utils/setLevel";
 
 const password = "123456";
 
@@ -19,8 +20,7 @@ const LevelTwo = () => {
 
   const onNextLevel = () => {
     if (textRef.current!.innerText === password) {
-      navigate("/level/3");
-      setCookie("level", Math.max(1, (getCookie("level") as any) * 1));
+      setLevel(navigate, 3);
     }
   };
 
