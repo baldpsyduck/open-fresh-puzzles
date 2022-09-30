@@ -1,18 +1,18 @@
-import { Route, Routes, Navigate } from "react-router";
 import { BrowserRouter } from "react-router-dom";
-import Level from "./levels/Level";
-import Fallback from "./Fallback";
+import {getCookie} from './utils/cookie'
+import { useEffect } from "react";
+import Router from './router';
 
 const App = () => {
+  
+  useEffect(()=>{
+    const admitLevel=getCookie("level")||0 ;
+    console.log(admitLevel);
+  },[])
+
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path={"/"} element={<Navigate to={"/level/0"} />} />
-        <Route path={"level"}>
-          <Route path={":id"} element={<Level />} />
-        </Route>
-        <Route path={"*"} element={<Fallback />} />
-      </Routes>
+      <Router />
     </BrowserRouter>
   );
 };

@@ -7,6 +7,7 @@ import {
 import { useRef } from "react";
 import { useNavigate } from "react-router";
 import chroma from "chroma-js";
+import { setCookie } from "../utils/cookie";
 
 const LevelTwo = () => {
   const navigate = useNavigate();
@@ -21,6 +22,7 @@ const LevelTwo = () => {
     // blue predication
     if (185 <= h && h <= 260 && s >= 0.2 && v >= 0.3) {
       navigate("/level/4");
+      setCookie("level","4")
     }
   };
 

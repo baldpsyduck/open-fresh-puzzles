@@ -8,6 +8,7 @@ import {
 } from "../components/common";
 import { useState } from "react";
 import { useNavigate } from "react-router";
+import { setCookie } from "../utils/cookie";
 
 const password = "123456";
 
@@ -18,6 +19,7 @@ const LevelOne = () => {
   const onNextLevel = () => {
     if (value === password) {
       navigate("/level/2");
+      setCookie("level","2")
     }
   };
 
